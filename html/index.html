@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    <script>
+        function Nhap(){
+            var tendn, mk;
+            tendn = document.getElementById("txtName").value;
+            mk = document.getElementById("txtPass").value;
+
+            var cafe = new Array();
+            var taphop = document.querySelectorAll("input[type='checkbox']");
+            taphop.forEach(function(chk){
+                if (chk.checked)
+                cafe.push(chk.value);
+            });
+
+            var gtinh;
+            var taphopgt = document.querySelectorAll("input[type='radio']");
+            taphopgt.forEach(function(ra) {
+                if (ra.checked)
+                    gtinh = ra.value;
+            });
+
+            var w = window.open("infor.html");
+
+            localStorage.setItem("us", tendn);
+            localStorage.setItem("pd", mk);
+            localStorage.setItem("cf", cafe);
+            localStorage.setItem("gt", gtinh);
+        }
+            
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <form>
+            <input type="text" id="txtName" placeholder="Username">
+            <br>
+            <input type="password" id="txtPass" placeholder="Password">
+            <br>
+            <input type="radio" name="gt" value="Nam"> Nam
+            <input type="radio" name="gt" value="Nữ"> Nữ
+            <br>
+            <input type="checkbox" value="Chúa Nguyễn"> Chúa Nguyễn
+            <br>
+            <input type="checkbox" value="Nam Tiến"> Nam Tiến
+            <br>
+            <input type="checkbox" value="Đánh Đuổi"> Đánh Đuổi
+            <br>
+            <input type="checkbox" value="Vua Champa"> Vua Champa
+            <br>
+            <input type="button" value="Nhập" onclick="Nhap()">
+            <br>
+        </form>
+    </div>
+</body>
+</html>
